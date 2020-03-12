@@ -47,7 +47,10 @@ where t.value = 0
 ) Q
 order by Q.i desc, Q.value
 ;
-drop table if exists temp1
+
+-- New solution
+SELECT * FROM temp1 ORDER BY IF (value > 0, 0, 1), value;
+drop table if exists temp1;
 
 -- 4
 select
